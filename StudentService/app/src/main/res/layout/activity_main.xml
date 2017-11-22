@@ -9,8 +9,17 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.wsiiz.studentservice.MainActivity">
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnTestConnection"
+        android:text="Test connection" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:text=""
+        android:id="@+id/textView"
+        android:layout_below="@+id/btnTestConnection"
+        android:layout_alignEnd="@+id/btnTestConnection" />
 </RelativeLayout>
