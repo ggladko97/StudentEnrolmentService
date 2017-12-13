@@ -26,17 +26,21 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <uses-permission android:name="android.permission.INTERNET" />
 
-                <!--<category android:name="android.intent.category.LAUNCHER" />-->
+                <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
             </intent-filter>
         </activity>
-
+        <activity android:name=".SearchByCityActivity" />
+        <activity android:name=".CustomSearchActivity" />
+        <activity android:name=".SearchResultActivity" />
+        <activity android:name=".UnivercityDescriptionActivity" />
+        <activity android:name=".AddOpinionActivity" />
+        <activity android:name=".RegisterActivity"></activity>
     </application>
 
 </manifest>

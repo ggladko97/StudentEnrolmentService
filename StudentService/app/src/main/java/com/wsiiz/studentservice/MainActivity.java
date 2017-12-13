@@ -1,6 +1,6 @@
 package com.wsiiz.studentservice;
 
-import android.os.AsyncTask;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -8,67 +8,54 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.URL;
-import java.net.URLConnection;
+import com.wsiiz.studentservice.R;
+
 
 public class MainActivity extends AppCompatActivity {
 
-    private Button btnCheckConn;
-    private TextView tv;
+    TextView tvLogin, tvUserName, tvLikes, tvDislikes;
+    Button btnBack,btnMenu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        btnCheckConn = (Button) findViewById(R.id.btnTestConnection);
-        tv = (TextView) findViewById(R.id.textView);
-        btnCheckConn.setOnClickListener(new View.OnClickListener() {
+
+        Intent intent = getIntent();
+        Log.i("Incoming intent", intent.toString());
+
+        String login = intent.getStringExtra("login");
+        String likes = intent.getStringExtra("likes");
+        String dislikes = intent.getStringExtra("dislikes");
+
+        tvLogin = (TextView) findViewById(R.id.txtLogin);
+        tvUserName = (TextView) findViewById(R.id.txtUserName);
+        tvLikes = (TextView) findViewById(R.id.txtLikes);
+        tvDislikes = (TextView) findViewById(R.id.txtDisLikes);
+        btnBack = (Button) findViewById(R.id.btnBack);
+        btnMenu = (Button) findViewById(R.id.btnMenu);
+
+
+        tvLogin.setText(login);
+        tvUserName.setText(login);
+        tvLikes.setText(likes);
+        tvDislikes.setText(dislikes);
+
+        btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                new AsyncTask<String, Void, String>() {
-                    @Override
-                    protected void onPostExecute(String s) {
-                        tv.setText("Success: " + s);
-                    }
-
-                    @Override
-                    protected String doInBackground(String... params) {
-
-                        String endpoint = "http://192.168.0.12:8080/hello";//check address ifconfig -> wlan0
-
-                        Log.i("QUERY", endpoint);
-
-
-                        try {
-                            URL url = new URL(endpoint);
-                            URLConnection connection = url.openConnection();
-
-                            InputStream is = connection.getInputStream();
-                            BufferedReader reader = new BufferedReader(new InputStreamReader(is));
-
-                            StringBuilder result = new StringBuilder();
-
-                            String line;
-                            while ((line = reader.readLine()) != null) {
-                                result.append(line);
-
-                            }
-                            Log.i("line", result.toString());
-
-                            return result.toString();
-                        } catch (Exception e) {
-
-                        }
-                        return null;
-                    }
-                }.execute("");
-
+                Intent in  = new Intent(MainActivity.this, LoginActivity.class);
+                startActivity(in);
             }
         });
 
+        btnMenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent in = new Intent(MainActivity.this, CustomSearchActivity.class);
+                startActivity(in);
+            }
+        });
 
     }
 }
