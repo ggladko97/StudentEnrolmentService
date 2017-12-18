@@ -25,6 +25,7 @@
         android:textSize="20dp"
         android:textColor="#070606"
         android:text="Opinions "
+        android:id="@+id/tvOpinionsDisp"
         android:layout_marginTop="20dp"
         android:layout_marginRight="20dp"
         android:layout_marginBottom="20dp" />
@@ -60,7 +61,7 @@
     <ImageButton
         android:layout_width="84dp"
         android:layout_height="wrap_content"
-        android:id="@+id/imageButton"
+        android:id="@+id/ibExpand"
         android:src="@android:drawable/arrow_down_float"
         android:layout_gravity="center_horizontal"
         android:layout_weight="0.10" />
