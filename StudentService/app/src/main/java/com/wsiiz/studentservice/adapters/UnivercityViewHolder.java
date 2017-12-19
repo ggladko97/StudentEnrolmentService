@@ -1,5 +1,6 @@
 package com.wsiiz.studentservice.adapters;
 
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageButton;
@@ -12,11 +13,13 @@ import com.wsiiz.studentservice.R;
  */
 
 public class UnivercityViewHolder extends RecyclerView.ViewHolder {
+    private CardView cvUniverCard;
     private TextView tvUniverName, tvUniverCity, tvOpinionsDisp, tvOpinionsCount;
     private ImageButton ibExpand;
 
     public UnivercityViewHolder(View itemView) {
         super(itemView);
+        cvUniverCard = (CardView) itemView.findViewById(R.id.cvUniverCard);
         tvUniverName = (TextView) itemView.findViewById(R.id.tvUnivercityName);
         tvOpinionsCount = (TextView) itemView.findViewById(R.id.tvOpinionsCount);
         tvOpinionsDisp = (TextView) itemView.findViewById(R.id.tvOpinionsDisp);
@@ -48,4 +51,7 @@ public class UnivercityViewHolder extends RecyclerView.ViewHolder {
         return tvUniverCity;
     }
 
+    public CardView getCvUniverCard() {
+        return cvUniverCard;
+    }
 }

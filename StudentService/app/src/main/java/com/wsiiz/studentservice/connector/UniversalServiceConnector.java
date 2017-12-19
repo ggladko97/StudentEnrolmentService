@@ -58,8 +58,6 @@ public class UniversalServiceConnector extends AsyncTask<String, Void, String> {
                 InputStream is = connection.getInputStream();
                 BufferedReader reader = new BufferedReader(new InputStreamReader(is));
 
-
-
                 String line;
                 while ((line = reader.readLine()) != null) {
                     result.append(line);

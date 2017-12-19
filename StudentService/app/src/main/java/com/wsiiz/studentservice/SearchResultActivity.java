@@ -7,6 +7,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 
+import com.wsiiz.studentservice.adapters.CardViewAnimator;
 import com.wsiiz.studentservice.adapters.UnivercityCustomAdapter;
 import com.wsiiz.studentservice.model.Univercity;
 
@@ -19,12 +20,14 @@ public class SearchResultActivity extends AppCompatActivity {
     private RecyclerView rcView;
     private List<Univercity> universList;
     private UnivercityCustomAdapter adapter;
+//    private CardViewAnimator cvAnimator;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search_result);
         rcView = (RecyclerView) findViewById(R.id.rcView);
+
 
         Intent intent = getIntent();
         universList = (ArrayList<Univercity>) intent.getSerializableExtra("universList");

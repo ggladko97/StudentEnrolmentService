@@ -1,51 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:weightSum="1"
     android:background="#f0e6b6">
 
-<LinearLayout
+<android.support.v7.widget.CardView
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal"
+    android:orientation="vertical"
+    card_view:cardElevation="4dp"
+    card_view:cardCornerRadius="3dp"
+    android:id="@+id/cvUniverCard"
     android:background="#e0a0a0">
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="WSIIZ Rzeszow"
-        android:id="@+id/tvUnivercityName"
-        android:textColor="#070606"
-        android:textSize="28dp"
-        android:layout_margin="20dp" />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="20dp"
-        android:textColor="#070606"
-        android:text="Opinions "
-        android:id="@+id/tvOpinionsDisp"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginBottom="20dp" />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="#d71313"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginBottom="20dp"
-        android:textSize="30dp"
-        android:text="5"
-        android:id="@+id/tvOpinionsCount" />
-</LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:weightSum="1"
-        android:background="#d0dbe3">
+        android:background="#f0e6b6"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="WSIIZ Rzeszow"
+            android:id="@+id/tvUnivercityName"
+            android:textColor="#070606"
+            android:textSize="28dp"
+            android:layout_margin="20dp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#e0a0a0"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20dp"
+                android:textColor="#070606"
+                android:text="Opinions "
+                android:id="@+id/tvOpinionsDisp"
+                android:layout_margin="20dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#d71313"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="20dp"
+                android:textSize="30dp"
+                android:text="5"
+                android:id="@+id/tvOpinionsCount" />
+        </LinearLayout>
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -57,13 +65,27 @@
             android:textColor="#070606"
             android:textSize="19dp"
             android:layout_marginTop="20dp" />
+        <ImageButton
+            android:layout_width="84dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/ibExpand"
+            android:src="@android:drawable/arrow_down_float"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="0.10" />
+
     </LinearLayout>
-    <ImageButton
-        android:layout_width="84dp"
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/ibExpand"
-        android:src="@android:drawable/arrow_down_float"
-        android:layout_gravity="center_horizontal"
-        android:layout_weight="0.10" />
+        android:orientation="horizontal"
+        android:weightSum="1"
+        android:background="#d0dbe3">
+
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>
+
 
 </LinearLayout>
+

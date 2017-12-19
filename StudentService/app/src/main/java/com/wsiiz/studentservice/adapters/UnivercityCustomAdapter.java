@@ -1,6 +1,7 @@
 package com.wsiiz.studentservice.adapters;
 
 import android.content.Context;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -40,7 +41,17 @@ public class UnivercityCustomAdapter extends RecyclerView.Adapter<UnivercityView
         univercityViewHolder.getTvOpinionsCount().setText(String.valueOf(univercity.getOpinionss().size()));
         univercityViewHolder.getTvUniverCity().setText(String.valueOf(univercity.getLocalization()));
 
-        univercityViewHolder.getIbExpand().setOnClickListener((v) -> Toast.makeText(ctx, "univercity clicked", Toast.LENGTH_SHORT).show());
+        CardView cvUniverCard = univercityViewHolder.getCvUniverCard();
+        CardViewAnimator animator = new CardViewAnimator(ctx);
+
+//        final boolean isExpanded = i==mExpandedPosition;
+//        univercityViewHolder.details.setVisibility(isExpanded?View.VISIBLE:View.GONE);
+//        univercityViewHolder.itemView.setActivated(isExpanded);
+
+        univercityViewHolder.getIbExpand().setOnClickListener((v) -> {
+            animator.expand();
+            Toast.makeText(ctx, "univercity clicked", Toast.LENGTH_SHORT).show();
+        });
     }
 
     @Override
