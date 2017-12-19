@@ -1,22 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:card_view="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:weightSum="1"
-    android:background="#f0e6b6">
+<!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--xmlns:card_view="http://schemas.android.com/apk/res-auto"-->
+    <!--android:orientation="vertical"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:weightSum="1"-->
+    <!--android:background="#f0e6b6">-->
 
-<android.support.v7.widget.CardView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    card_view:cardElevation="4dp"
-    card_view:cardCornerRadius="3dp"
-    android:id="@+id/cvUniverCard"
-    android:background="#e0a0a0">
+<!--<com.wsiiz.studentservice.adapters.CardViewAnimator-->
+    <!--xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--xmlns:card_view="http://schemas.android.com/apk/res-auto"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:orientation="vertical"-->
+    <!--card_view:cardElevation="4dp"-->
+    <!--card_view:cardCornerRadius="3dp"-->
+    <!--android:id="@+id/cvUniverCard"-->
+    <!--android:background="#e0a0a0">-->
     <LinearLayout
         android:layout_width="match_parent"
+        xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_height="wrap_content"
         android:background="#f0e6b6"
         android:orientation="vertical">
@@ -72,20 +75,11 @@
             android:src="@android:drawable/arrow_down_float"
             android:layout_gravity="center_horizontal"
             android:layout_weight="0.10" />
-
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:weightSum="1"
-        android:background="#d0dbe3">
 
-    </LinearLayout>
-
-</android.support.v7.widget.CardView>
+<!--</com.wsiiz.studentservice.adapters.CardViewAnimator>-->
 
 
-</LinearLayout>
+<!--</LinearLayout>-->
 

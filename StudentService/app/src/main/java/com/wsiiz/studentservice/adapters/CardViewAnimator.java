@@ -2,10 +2,15 @@ package com.wsiiz.studentservice.adapters;
 
 import android.content.Context;
 import android.support.v7.widget.CardView;
+import android.util.AttributeSet;
 import android.util.Log;
+import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.Transformation;
+import android.widget.FrameLayout;
 import android.widget.Toast;
+
+import com.wsiiz.studentservice.R;
 
 /**
  * Created by hladlyev on 19.12.2017.
@@ -13,18 +18,49 @@ import android.widget.Toast;
 
 public class CardViewAnimator extends CardView {
 
+    private FrameLayout flContent, flExpanded;
+
+
+    public CardViewAnimator(Context context, AttributeSet attrs) {
+        super(context, attrs);
+    }
+
+    public CardViewAnimator(Context context, AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
+    }
 
     public CardViewAnimator(Context context) {
         super(context);
     }
 
-    public void expand() {
-        int initialHeight = getHeight();
+    @Override
+    protected void onFinishInflate() {
+        super.onFinishInflate();
+        init();
+    }
 
-        measure(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
-        int targetHeight = getMeasuredHeight();
+    private void init() {
+        flContent = findViewById(R.id.flUniverTitle);
+        flExpanded = findViewById(R.id.flUniverExpanded);
+    }
+
+    public void attachTitleContent(int layId) {
+        inflate(getContext(), layId, flContent);
+    }
+
+    public void attachExpandedContent(int layId) {
+        inflate(getContext(), layId, flExpanded);
+    }
+
+    public void expand() {
+        int initialHeight = flExpanded.getHeight();
+
+
+        flExpanded.measure(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+        int targetHeight = flExpanded.getMeasuredHeight();
 
         int distanceToExpand = targetHeight - initialHeight;
+        flExpanded.setVisibility(VISIBLE);
 
         Animation a = new Animation() {
             @Override
@@ -33,7 +69,7 @@ public class CardViewAnimator extends CardView {
                     Toast.makeText(getContext(), "Expanded", Toast.LENGTH_LONG).show();
                 }
 
-                getLayoutParams().height = (int) (initialHeight + (distanceToExpand * interpolatedTime));
+                flExpanded.getLayoutParams().height = (int) (initialHeight + (distanceToExpand * interpolatedTime));
                 requestLayout();
             }
 
@@ -44,7 +80,7 @@ public class CardViewAnimator extends CardView {
         };
 
         a.setDuration((long) distanceToExpand);
-        startAnimation(a);
+        flExpanded.startAnimation(a);
     }
 
     public void collapse(int collapsedHeight) {

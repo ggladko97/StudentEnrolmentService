@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.wsiiz.studentservice.R;
 
@@ -13,18 +14,32 @@ import com.wsiiz.studentservice.R;
  */
 
 public class UnivercityViewHolder extends RecyclerView.ViewHolder {
-    private CardView cvUniverCard;
-    private TextView tvUniverName, tvUniverCity, tvOpinionsDisp, tvOpinionsCount;
+    private CardViewAnimator cvUniverCard;
+    private TextView tvUniverName, tvUniverCity, tvOpinionsDisp, tvOpinionsCount, tvExpContent;
     private ImageButton ibExpand;
 
     public UnivercityViewHolder(View itemView) {
         super(itemView);
-        cvUniverCard = (CardView) itemView.findViewById(R.id.cvUniverCard);
+//        cvUniverCard = itemView.findViewById(R.id.cvUniverCard);
         tvUniverName = (TextView) itemView.findViewById(R.id.tvUnivercityName);
         tvOpinionsCount = (TextView) itemView.findViewById(R.id.tvOpinionsCount);
+//        tvExpContent = (TextView) itemView.findViewById(R.id.tvExpandedContent);
         tvOpinionsDisp = (TextView) itemView.findViewById(R.id.tvOpinionsDisp);
         ibExpand = (ImageButton) itemView.findViewById(R.id.ibExpand);
         tvUniverCity = (TextView) itemView.findViewById(R.id.tvUnivercityCity);
+
+        itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((CardViewAnimator)itemView).expand();
+//                if (i == expandedPosition) {
+//                    univercityViewHolder.getTvExpContent().setVisibility(View.VISIBLE);
+//                } else {
+//                    univercityViewHolder.getTvExpContent().setVisibility(View.GONE);
+//                }
+                Toast.makeText(v.getContext(), "univercity clicked", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     public TextView getTvUniverName() {
@@ -53,5 +68,9 @@ public class UnivercityViewHolder extends RecyclerView.ViewHolder {
 
     public CardView getCvUniverCard() {
         return cvUniverCard;
+    }
+
+    public TextView getTvExpContent() {
+        return tvExpContent;
     }
 }

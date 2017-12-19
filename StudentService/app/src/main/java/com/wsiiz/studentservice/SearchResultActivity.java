@@ -33,7 +33,7 @@ public class SearchResultActivity extends AppCompatActivity {
         universList = (ArrayList<Univercity>) intent.getSerializableExtra("universList");
         Log.i("Re3cieved", String.valueOf(universList));
 
-        adapter = new UnivercityCustomAdapter(universList);
+        adapter = new UnivercityCustomAdapter(universList, rcView);
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         rcView.setLayoutManager(mLayoutManager);
         rcView.setAdapter(adapter);
