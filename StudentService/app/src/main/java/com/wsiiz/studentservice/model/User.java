@@ -1,11 +1,12 @@
 package com.wsiiz.studentservice.model;
 
+import java.io.Serializable;
 import java.util.Set;
 
 /**
  * Created by ggladko97 on 12.11.17.
  */
-public class User {
+public class User implements Serializable{
     private int id;
     private String name;
     private String password;

@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.Transformation;
 import android.widget.FrameLayout;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.wsiiz.studentservice.R;
@@ -19,7 +20,8 @@ import com.wsiiz.studentservice.R;
 public class CardViewAnimator extends CardView {
 
     private FrameLayout flContent, flExpanded;
-
+    private ImageButton ibExpand;
+    private boolean isExpanded = false;
 
     public CardViewAnimator(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -37,11 +39,22 @@ public class CardViewAnimator extends CardView {
     protected void onFinishInflate() {
         super.onFinishInflate();
         init();
+        ibExpand.setOnClickListener((v) -> {
+            if (isExpanded) {
+                isExpanded = false;
+                Log.i("Closed", "expanded layout closed");
+                collapse(0);
+            } else {
+                isExpanded = true;
+                expand();
+            }
+        });
     }
 
     private void init() {
         flContent = findViewById(R.id.flUniverTitle);
         flExpanded = findViewById(R.id.flUniverExpanded);
+        ibExpand = findViewById(R.id.ibExpand);
     }
 
     public void attachTitleContent(int layId) {
@@ -84,10 +97,10 @@ public class CardViewAnimator extends CardView {
     }
 
     public void collapse(int collapsedHeight) {
-        int initialHeight = getMeasuredHeight();
+        int initialHeight = flExpanded.getMeasuredHeight();
 
         int distanceToCollapse = (int) (initialHeight - collapsedHeight);
-
+        flExpanded.setVisibility(GONE);
         Animation a = new Animation() {
             @Override
             protected void applyTransformation(float interpolatedTime, Transformation t) {
@@ -96,7 +109,7 @@ public class CardViewAnimator extends CardView {
                 }
                 Log.i("ANIMATOR", "Collapse | InterpolatedTime = " + interpolatedTime);
 
-                getLayoutParams().height = (int) (initialHeight - (distanceToCollapse * interpolatedTime));
+                flExpanded.getLayoutParams().height = (int) (initialHeight - (distanceToCollapse * interpolatedTime));
                 requestLayout();
             }
 
@@ -107,6 +120,10 @@ public class CardViewAnimator extends CardView {
         };
 
         a.setDuration((long) distanceToCollapse);
-        startAnimation(a);
+        flExpanded.startAnimation(a);
+    }
+
+    public boolean isExpanded() {
+        return isExpanded;
     }
 }

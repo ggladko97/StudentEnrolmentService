@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.wsiiz.studentservice.R;
+import com.wsiiz.studentservice.model.User;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -24,9 +25,7 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = getIntent();
         Log.i("Incoming intent", intent.toString());
 
-        String login = intent.getStringExtra("login");
-        String likes = intent.getStringExtra("likes");
-        String dislikes = intent.getStringExtra("dislikes");
+        User incomingUser = (User) intent.getSerializableExtra("user");
 
         tvLogin = (TextView) findViewById(R.id.txtLogin);
         tvUserName = (TextView) findViewById(R.id.txtUserName);
@@ -36,10 +35,10 @@ public class MainActivity extends AppCompatActivity {
         btnMenu = (Button) findViewById(R.id.btnMenu);
 
 
-        tvLogin.setText(login);
-        tvUserName.setText(login);
-        tvLikes.setText(likes);
-        tvDislikes.setText(dislikes);
+        tvLogin.setText(incomingUser.getName());
+        tvUserName.setText(incomingUser.getName());
+        tvLikes.setText(String.valueOf(incomingUser.getLikes()));
+        tvDislikes.setText(String.valueOf(incomingUser.getDislikes()));
 
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override

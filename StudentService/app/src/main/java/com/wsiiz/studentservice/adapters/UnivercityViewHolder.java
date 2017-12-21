@@ -16,7 +16,7 @@ import com.wsiiz.studentservice.R;
 public class UnivercityViewHolder extends RecyclerView.ViewHolder {
     private CardViewAnimator cvUniverCard;
     private TextView tvUniverName, tvUniverCity, tvOpinionsDisp, tvOpinionsCount, tvExpContent;
-    private ImageButton ibExpand;
+//    private ImageButton ibExpand;
 
     public UnivercityViewHolder(View itemView) {
         super(itemView);
@@ -25,7 +25,7 @@ public class UnivercityViewHolder extends RecyclerView.ViewHolder {
         tvOpinionsCount = (TextView) itemView.findViewById(R.id.tvOpinionsCount);
 //        tvExpContent = (TextView) itemView.findViewById(R.id.tvExpandedContent);
         tvOpinionsDisp = (TextView) itemView.findViewById(R.id.tvOpinionsDisp);
-        ibExpand = (ImageButton) itemView.findViewById(R.id.ibExpand);
+//        ibExpand = (ImageButton) itemView.findViewById(R.id.ibExpand);
         tvUniverCity = (TextView) itemView.findViewById(R.id.tvUnivercityCity);
 
         itemView.setOnClickListener(new View.OnClickListener() {
@@ -57,9 +57,9 @@ public class UnivercityViewHolder extends RecyclerView.ViewHolder {
     }
 
 
-    public ImageButton getIbExpand() {
-        return ibExpand;
-    }
+//    public ImageButton getIbExpand() {
+//        return ibExpand;
+//    }
 
 
     public TextView getTvUniverCity() {

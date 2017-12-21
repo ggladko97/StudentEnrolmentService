@@ -55,9 +55,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View view) {
 //                attemptLogin();
                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                intent.putExtra("login", dummyUser.getName());
-                intent.putExtra("likes", dummyUser.getLikes());
-                intent.putExtra("dislikes", dummyUser.getDislikes());
+                intent.putExtra("user", dummyUser);
                 startActivity(intent);
             }
         });

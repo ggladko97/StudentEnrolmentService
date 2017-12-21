@@ -46,11 +46,6 @@ public class UnivercityCustomAdapter extends RecyclerView.Adapter<UnivercityView
         univercityViewHolder.getTvUniverName().setText(String.valueOf(univercity.getTitle()));
         univercityViewHolder.getTvOpinionsCount().setText(String.valueOf(univercity.getOpinionss().size()));
         univercityViewHolder.getTvUniverCity().setText(String.valueOf(univercity.getLocalization()));
-
-
-
-
-
     }
 
     @Override
