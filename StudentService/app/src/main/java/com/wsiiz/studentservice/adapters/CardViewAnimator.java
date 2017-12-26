@@ -66,8 +66,8 @@ public class CardViewAnimator extends CardView {
     }
 
     public void expand() {
+        Toast.makeText(getContext(), "Expanded = " + isExpanded, Toast.LENGTH_LONG).show();
         int initialHeight = flExpanded.getHeight();
-
 
         flExpanded.measure(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
         int targetHeight = flExpanded.getMeasuredHeight();
@@ -78,12 +78,8 @@ public class CardViewAnimator extends CardView {
         Animation a = new Animation() {
             @Override
             protected void applyTransformation(float interpolatedTime, Transformation t) {
-                if (interpolatedTime == 1){
-                    Toast.makeText(getContext(), "Expanded", Toast.LENGTH_LONG).show();
-                }
-
-                flExpanded.getLayoutParams().height = (int) (initialHeight + (distanceToExpand * interpolatedTime));
-                requestLayout();
+                    flExpanded.getLayoutParams().height = (int) (initialHeight + (distanceToExpand * interpolatedTime));
+                flExpanded.requestLayout();
             }
 
             @Override
@@ -97,20 +93,21 @@ public class CardViewAnimator extends CardView {
     }
 
     public void collapse(int collapsedHeight) {
+        Toast.makeText(getContext(), "Collapsed = " + isExpanded, Toast.LENGTH_LONG).show();
         int initialHeight = flExpanded.getMeasuredHeight();
 
         int distanceToCollapse = (int) (initialHeight - collapsedHeight);
-        flExpanded.setVisibility(GONE);
+
         Animation a = new Animation() {
             @Override
             protected void applyTransformation(float interpolatedTime, Transformation t) {
-                if (interpolatedTime == 1){
-                    Toast.makeText(getContext(), "Collapsed", Toast.LENGTH_LONG).show();
+                if (interpolatedTime == 1) {
+                    flExpanded.setVisibility(GONE);
                 }
                 Log.i("ANIMATOR", "Collapse | InterpolatedTime = " + interpolatedTime);
 
                 flExpanded.getLayoutParams().height = (int) (initialHeight - (distanceToCollapse * interpolatedTime));
-                requestLayout();
+                flExpanded.requestLayout();
             }
 
             @Override
