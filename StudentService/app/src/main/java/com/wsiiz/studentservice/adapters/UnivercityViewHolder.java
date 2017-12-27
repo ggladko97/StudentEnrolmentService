@@ -27,19 +27,19 @@ public class UnivercityViewHolder extends RecyclerView.ViewHolder {
         tvOpinionsDisp = (TextView) itemView.findViewById(R.id.tvOpinionsDisp);
 //        ibExpand = (ImageButton) itemView.findViewById(R.id.ibExpand);
         tvUniverCity = (TextView) itemView.findViewById(R.id.tvUnivercityCity);
-
-        itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ((CardViewAnimator)itemView).expand();
-//                if (i == expandedPosition) {
-//                    univercityViewHolder.getTvExpContent().setVisibility(View.VISIBLE);
-//                } else {
-//                    univercityViewHolder.getTvExpContent().setVisibility(View.GONE);
-//                }
-                Toast.makeText(v.getContext(), "univercity clicked", Toast.LENGTH_SHORT).show();
-            }
-        });
+//
+//        itemView.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+////                ((CardViewAnimator)itemView).expand();
+////                if (i == expandedPosition) {
+////                    univercityViewHolder.getTvExpContent().setVisibility(View.VISIBLE);
+////                } else {
+////                    univercityViewHolder.getTvExpContent().setVisibility(View.GONE);
+////                }
+////                Toast.makeText(v.getContext(), "univercity clicked", Toast.LENGTH_SHORT).show();
+//            }
+//        });
     }
 
     public TextView getTvUniverName() {
